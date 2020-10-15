@@ -4,26 +4,25 @@ metadata:
   name: redis
 spec:
   selector:
-    matchLabels:
+    matchLabels: 
       app: redis
   template:
     metadata:
       labels:
         app: redis
     spec:
-      volumes: 
+      volumes:
         -
           name: redis
-          emptydir: {}
-       containers:
-         -
-           image: redis-alpine
-           name: redis
-           ports:
-             -
-               containerPort: 6379
-           volumeMounts: 
-             -
-               name: redis
-               mountPath: /data
-       
+          emptyDir: {}
+      containers:
+        -
+          image: redis:alpine
+          name: redis
+          ports:
+            -
+              containerPort: 6379
+          volumeMounts:
+            -
+              name: redis
+              mountPath: /data
